@@ -125,9 +125,9 @@ function App() {
             <div className="link" onClick={handleCopyLink}>
             <img src="/link.svg" alt="link" />
             {sharedId ? (
-              <p>{"..." + `${window.location.origin}/${sharedId}`.slice(21)}</p>
+              <p>{`.../${sharedId}`.slice(21)}</p>
             ) : (
-              <p>{"..." + `${window.location.origin}/${codeId}`.slice(21)}</p>
+              <p>{`.../${codeId}`.slice(21)}</p>
             )}
           </div>
           )}
