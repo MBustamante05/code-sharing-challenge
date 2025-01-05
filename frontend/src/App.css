@@ -120,3 +120,16 @@ body{
 .share > div > p{
   color: #606a7e;
 }
+
+/* responsiveness */
+
+@media screen and (max-width: 968px) {
+  .editor{
+    width: 85%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .editor{
+    width: 95%;
+  }
+}
