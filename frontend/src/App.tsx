@@ -78,7 +78,7 @@ function App() {
   };
 
   const handleCopyLink = () => {
-    const fullLink = `http://localhost:5173/${codeId}`;
+    const fullLink = `${window.location.origin}/${codeId}`;
     navigator.clipboard
       .writeText(fullLink)
       .then(() => {
@@ -123,10 +123,13 @@ function App() {
         <div className="share">
           {!isEdited && (
             <div className="link" onClick={handleCopyLink}>
-              <img src="/link.svg" alt="link" />
-              {sharedId ? <p>{"..." + `http://localhost:5173/${sharedId}`.slice(21)}</p> : <p>{"..." + `http://localhost:5173/${codeId}`.slice(21)}</p>}
-              
-            </div>
+            <img src="/link.svg" alt="link" />
+            {sharedId ? (
+              <p>{"..." + `${window.location.origin}/${sharedId}`.slice(21)}</p>
+            ) : (
+              <p>{"..." + `${window.location.origin}/${codeId}`.slice(21)}</p>
+            )}
+          </div>
           )}
 
           <button
