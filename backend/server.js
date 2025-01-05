@@ -5,7 +5,7 @@ import { PORT } from '../config.js';
 const app = express();
 const corsOptions = {
   origin: 'http://localhost:5173',
-  method: ['GET', 'POST']
+  credentials: true,
 }
 
 import { connectDB } from './lib/db.js';

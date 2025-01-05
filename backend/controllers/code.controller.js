@@ -17,7 +17,7 @@ export const shareCode = async (req, res) => {
     const { code, language, theme } = req.body;
     const newCode = new Code({ code, language, theme });
     await newCode.save();
-    res.status(201).json({ message: "Code shared successfully" });
+    res.status(201).json({ message: "Code shared successfully", id: newCode._id });
   } catch (error) {
     console.log("Error sharing code: ", error);
     res.status(500).json({ message: "Server error" });
