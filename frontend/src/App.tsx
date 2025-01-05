@@ -36,6 +36,7 @@ function App() {
           setSelectedLanguage(res.data.language);
           setSelectedTheme(res.data.theme);
           setIsEdited(false);
+          console.log(res.data);  
         } catch (err) {
           console.error(err);
           toast.error("Failed to load the shared code!");
@@ -60,7 +61,11 @@ function App() {
           language: selectedLanguage,
           theme: selectedTheme,
         });
-        setCodeId(res.data.id);
+        if(sharedId){
+          setCodeId(sharedId);
+        }else{
+          setCodeId(res.data.id);
+        }
         toast.success("Link generated successfully, you can share it!");
         setIsEdited(false);
       }
@@ -125,9 +130,9 @@ function App() {
             <div className="link" onClick={handleCopyLink}>
             <img src="/link.svg" alt="link" />
             {sharedId ? (
-              <p>{`.../${sharedId}`.slice(21)}</p>
+              <p>{`.../${sharedId}`}</p>
             ) : (
-              <p>{`.../${codeId}`.slice(21)}</p>
+              <p>{`.../${codeId}`}</p>
             )}
           </div>
           )}
